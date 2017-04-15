@@ -1,0 +1,17 @@
+Hướng dẫn sử dụng 
+-Khởi động xampp 
+-dùng cmd trỏ đến thư mục 
+ví dụ: thư mục code tên là ngocthai1 và nó đang ở desktop 
+thì ta dùng cmd : cd Desktop\ngocthai1 
+và chạy bằng câu lệnh: node app.js
+
+quan sát cửa sổ dòng lệnh: nếu thấy câu lệnh: server listening on port 5000 thì: 
+tại trên cửa sổ trình duyệt web gõ : localhost:5000 
+- sau đó nó hiện lên ô nhập liệu : 
+nhập đầy đủ thông tin vào ô nhập liệu sau đó nhấp vào button insert 
+- rồi quay lại cửa sổ cmd 
+-nếu thấy câu lệnh insert thành công thì việc thêm một người vào cơ sở dữ liệu đã thành công 
+còn mành hình localhost:5000 vẫn cứ quay thì kệ nó .
+- bây giờ test api 
+-tại của sổ trình duyệt có: localhost:5000 ta đổi thành : localhost:5000/api/user  rồi nhấn enter
+-xem kết quả 
