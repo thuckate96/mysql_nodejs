@@ -14,7 +14,7 @@ var morgan 	   = require("morgan");
 var path       = require("path");
 //require file mydatabase.js ở trong folder models .
 //file mydatabase.js có nhiệm vụ tạo tên cơ sở dữ liệu , tạo bảng , nếu chưa tồn tại
-var db = require('./models/mydatabase');
+// var db = require('./models/mydatabase');
 
 //tạo cổng làm việc cho node js . ở đây là 5000
  var port = process.env.PORT||5000;
@@ -30,17 +30,34 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 //sét thư mục views dùng để chứa template ejs .
 app.set("views", path.join(__dirname, "views"));
+app.use(function (req, res, next) {
 
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
+});
 //contrllers
 //Khai báo hai controller .1 là controller index1 chuyên sử lý điều hướng đến file index.ejs (file view )
 
 var index1 = require("./controllers/index1");
 //index2 là controller của api user
-var index2 = require("./controllers/index2");
+// var index2 = require("./controllers/index2");
 //sử dụng / này trên browser tương đương với localhost:5000 cho controller index1 xử lý
 app.use("/", index1);
 //sử dụng /api/user này trên browser tương ứng với localhost:5000/api/user do contrller index2 xử lý
-app.use("/api/user", index2);
+// app.use("/api/user", index2);
 
 //server làm việc tại cổng 5000
 app.listen(port);
