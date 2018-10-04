@@ -52,7 +52,12 @@ router.route("/api/capacity").get((req, res) => {
   else res.json({status: "faild", data: []})
 
 });
+router.route("/api/user/login").get((req, res)=> {
+  let username = req.query.username;
+  let password = req.query.password;
 
+  res.json({username: username, password: password})
+})
 router.route("/api/history").get((req, res) => {
 
   var dataT = {
